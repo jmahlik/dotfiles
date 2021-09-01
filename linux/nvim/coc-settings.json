@@ -1,0 +1,100 @@
+{
+    "languageserver": {
+        "ccls": {
+            "command": "ccls",
+            "filetypes": [
+                "c",
+                "cpp",
+                "cuda",
+                "objc",
+                "objcpp"
+            ],
+            "rootPatterns": [
+                ".ccls-root",
+                "compile_commands.json"
+            ],
+            "initializationOptions": {
+                "cache": {
+                    "directory": ".ccls-cache"
+                },
+                "client": {
+                    "snippetSupport": true
+                }
+            }
+        },
+        "bash": {
+            "command": "bash-language-server",
+            "args": [
+                "start"
+            ],
+            "filetypes": [
+                "sh"
+            ],
+            "ignoredRootPaths": [
+                "~"
+            ]
+        },
+        "dockerfile": {
+            "command": "docker-langserver",
+            "filetypes": [
+                "dockerfile"
+            ],
+            "args": [
+                "--stdio"
+            ]
+        }
+    },
+    "coc.preferences.formatOnSaveFiletypes": [
+        "css",
+        "markdown",
+        "javascript",
+        "graphql",
+        "html",
+        "yaml",
+        "json",
+        "python",
+        "java"
+    ],
+    "jedi.enable": false,
+    "jedi.startupMessage": true,
+    "jedi.markupKindPreferred": "plaintext",
+    "jedi.trace.server": "messages",
+    "jedi.jediSettings.autoImportModules": [],
+    "jedi.executable.command": "jedi-language-server",
+    "jedi.executable.args": [],
+    "jedi.completion.disableSnippets": false,
+    "jedi.diagnostics.enable": true,
+    "jedi.diagnostics.didOpen": true,
+    "jedi.diagnostics.didChange": true,
+    "jedi.diagnostics.didSave": true,
+    "jedi.workspace.extraPaths": [],
+    "python.analysis.autoImportCompletions": true,
+    "python.analysis.autoSearchPaths": true,
+    "python.analysis.diagnosticMode": "openFilesOnly",
+    "python.analysis.stubPath": "typings",
+    "python.analysis.typeshedPaths": [],
+    "python.analysis.diagnosticSeverityOverrides": {},
+    "python.analysis.typeCheckingMode": "basic",
+    "python.analysis.useLibraryCodeForTypes": true,
+    "python.pythonPath": "python",
+    "python.venvPath": ".venv",
+    "python.formatting.provider": "black",
+    "python.formatting.blackPath": "black",
+    "python.formatting.blackArgs": [],
+    "python.formatting.autopep8Path": "autopep8",
+    "python.formatting.autopep8Args": [],
+    "python.formatting.yapfPath": "yapf",
+    "python.formatting.yapfArgs": [],
+    "python.linting.enabled": true,
+    "python.linting.flake8Enabled": true,
+    "python.linting.banditEnabled": true,
+    "python.linting.mypyEnabled": true,
+    "python.linting.pytypeEnabled": true,
+    "python.linting.prospectorEnabled": false,
+    "python.linting.pydocstyleEnabled": false,
+    "python.linting.pylamaEnabled": false,
+    "python.linting.pylintEnabled": false,
+    "pyright.disableCompletion": false,
+    "pyright.disableLanguageServices": false,
+    "pyright.disableOrganizeImports": false
+}

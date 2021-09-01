@@ -1,6 +1,6 @@
 # vimrc
 
-Dotfiles for using [neovim](https://neovim.io/) for data science, data engineering, python development on Windows. The terminal is meant to be used from nvim-at.exe. Using nvim from inside git bash doesn't play well with the terminal. Everything else works though. 
+Dotfiles for using [neovim](https://neovim.io/) for data science, data engineering, python development on Windows. The terminal is meant to be used from nvim-qt.exe. Using nvim from inside git bash doesn't play well with the terminal. Everything else works though. 
 
 Setting this up was beyond painful on Windows. Mainly getting the terminal to send correct lines and start the correct shell. Feel free to open an issue if you have questions. 
 
