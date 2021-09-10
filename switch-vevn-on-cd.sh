@@ -7,7 +7,9 @@ function cd() {
   fi
 
   if [[ -d ./.venv ]] ; then
-    . ./.venv/Scripts/activate
+    . ./.venv/bin/activate
     echo "activate $VIRTUAL_ENV"
+  elif [[ -d ./venv ]] ; then
+    . ./venv/bin/activate
   fi
 }
