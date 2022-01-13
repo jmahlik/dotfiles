@@ -1,5 +1,16 @@
 -- Needed for copy paste on wsl terminals
 
+JoinPath = function(...)
+	-- For windows............................
+	local arg = {...}
+	print(...)
+	local path_str = ""
+	for i, path in ipairs(arg) do
+	    path_str = path_str .. package.config:sub(1,1) .. path
+	end
+	return path_str
+end
+
 if vim.fn.has('unix') == 1 then
     vim.cmd('map! <S-Insert> <C-R>+')
 end
@@ -12,7 +23,7 @@ end
 vim.o.background = 'dark'
 
 -- Source old vimrc file that also works in normal vim
-vim.cmd("source" .. vim.fn.stdpath("config") .. "/lua/configs/vimrc.vim")
+vim.cmd("source" .. " " .. vim.fn.stdpath("config") .. JoinPath("lua", "configs", "vimrc.vim"))
 
 local plugins = require("plugins")
 
