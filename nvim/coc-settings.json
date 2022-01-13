@@ -1,0 +1,36 @@
+{
+    "json.enable": true,
+    "jedi.enable": false,
+    "python.pythonPath": "python",
+    "python.formatting.provider": "black",
+    "python.formatting.blackPath": "black",
+    "python.linting.enabled": true,
+    "python.linting.flake8Enabled": true,
+    "python.linting.flake8Path": "flake8",
+    "python.linting.mypyPath": "mypy",
+    "python.analysis.useLibraryCodeForTypes": true,
+    "python.linting.mypyEnabled": true,
+    "languageserver": {
+        "ccls": {
+            "command": "ccls",
+            "filetypes": [
+                "c",
+                "cpp",
+                "objc",
+                "objcpp"
+            ],
+            "rootPatterns": [
+                ".ccls",
+                "compile_commands.json",
+                ".vim/",
+                ".git/",
+                ".hg/"
+            ],
+            "initializationOptions": {
+                "cache": {
+                    "directory": "/tmp/ccls"
+                }
+            }
+        }
+    }
+}

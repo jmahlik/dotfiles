@@ -9,11 +9,15 @@ local plugin_loader = {}
 function plugin_loader.load(all_plugins)
 	vim.fn["plug#begin"](vim.fn.stdpath("data") .. "/plugged")
 	for _, plugin in ipairs(all_plugins) do
-        print(plugin.repo)
 		plug(plugin.repo, plugin.opts)
-		-- plugin.config()
 	end
 	vim.fn["plug#end"]()
+
+	for _, plugin in ipairs(all_plugins) do
+        if plugin.config then
+            plugin.config()
+        end
+	end
 end
 
 return plugin_loader
