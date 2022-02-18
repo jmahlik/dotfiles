@@ -10,6 +10,7 @@
     "python.linting.mypyPath": "mypy",
     "python.analysis.useLibraryCodeForTypes": true,
     "python.linting.mypyEnabled": true,
+    "Lua.workspace.library": ["/home/justin/neovim/runtime/lua"],
     "languageserver": {
         "ccls": {
             "command": "ccls",

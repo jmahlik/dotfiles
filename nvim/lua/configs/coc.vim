@@ -94,6 +94,7 @@ let g:coc_global_extensions = [
             \ 'coc-sumneko-lua',
             \ 'coc-tsserver',
             \ 'coc-sh',
+            \ 'coc-go',
 \] 
 
 " 'coc-clangd'
