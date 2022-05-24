@@ -33,7 +33,7 @@ return {
         repo = "neoclide/coc.nvim",
         opts = {branch = 'release'},
         config = function()
-            vim.cmd("source" .. " " .. vim.fn.stdpath("config") .. JoinPath("lua", "configs", "coc.vim"))
+            vim.cmd("source" .. vim.fn.stdpath("config") .. "/lua/configs/coc.vim")
         end,
         license = "MIT",
     },

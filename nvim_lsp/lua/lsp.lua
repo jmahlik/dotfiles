@@ -56,17 +56,6 @@ local on_attach = function(client, bufnr)
 	end
 end
 
--- get correct python venv path
-local get_venv_path = function()
-	local path = vim.fn.getcwd() .. "/"
-	if vim.fn.has("unix") == 1 then
-		path = path .. ".venv/bin/"
-	else
-		path = path .. ".venv/Scripts/"
-	end
-	return path
-end
-
 -- Config.settings for lsp servers
 local configs = {
 	lua = {
@@ -91,7 +80,7 @@ local configs = {
 	},
 	python = {
 		python = {
-			pythonPath = get_venv_path() .. "python",
+			pythonPath = "python",
 			analysis = {
 				autoSearchPaths = true,
 				diagnosticMode = "workspace",
@@ -104,18 +93,18 @@ local configs = {
 		languages = {
 			python = {
 				{
-					lintCommand = get_venv_path() .. "flake8 --stdin-display-name ${INPUT} -",
+					lintCommand = "flake8 --stdin-display-name ${INPUT} -",
 					lintStdin = true,
 					lintIgnoreExitCode = true,
 					lintSource = "flake8",
 				},
 				{
-					lintCommand = get_venv_path() .. "mypy --show-column-numbers",
+					lintCommand = "mypy --show-column-numbers",
 					lintIgnoreExitCode = true,
 					lintSource = "mypy",
 				},
 				{
-					formatCommand = get_venv_path() .. "black --quiet -",
+					formatCommand = "black --quiet -",
 					formatStdin = true,
 				},
 			},
