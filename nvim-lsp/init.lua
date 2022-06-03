@@ -4,9 +4,20 @@ if vim.fn.has('unix') == 1 then
     vim.cmd('map! <S-Insert> <C-R>+')
 end
 
+-- for windows
+local on_windows = vim.loop.os_uname().version:match 'Windows'
 
--- Source old vimrc file that also works in normal vim
-vim.cmd("source" .. vim.fn.stdpath("config") .. "/lua/configs/vimrc.vim")
+local function join_paths(...)
+  local path_sep = on_windows and '\\' or '/'
+  local result = table.concat({ ... }, path_sep)
+  return result
+end
+
+ -- Source old vimrc file that also works in normal vim
+vim.cmd("source " .. vim.fn.stdpath("config") .. "/lua/configs/vimrc.vim")
+
+-- TODO automate install of plug based on os platform
+-- https://github.com/junegunn/vim-plug
 
 local plugins = require("plugins")
 
