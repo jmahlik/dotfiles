@@ -33,8 +33,8 @@ vim.cmd("colorscheme gruvbox")
 
 
 -- vim.o.background = 'dark'
-vim.g.gruvbox_transparent_bg = 1
--- vim.cmd("autocmd VimEnter * hi Normal ctermbg=none")
+-- vim.g.gruvbox_transparent_bg = 1
+vim.cmd("autocmd VimEnter * hi Normal ctermbg=NONE guibg=NONE")
 
 -- require('auto_complete')
 -- require('lsp')
