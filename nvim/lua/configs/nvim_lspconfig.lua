@@ -14,7 +14,7 @@ local servers = {
     "jdtls",
     "tsserver",
     "sumneko_lua",
-    "zk",
+    "prosemd_lsp",
     "pyright",
     "sqlls",
     "terraformls",

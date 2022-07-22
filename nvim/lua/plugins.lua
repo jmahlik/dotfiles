@@ -1,42 +1,42 @@
 return {
-	{
-		repo = "morhetz/gruvbox",
-		license = "MIT license",
-		config = function()
-			require("configs.gruvbox").setup()
-		end,
-	},
-	{
-		repo = "hoob3rt/lualine.nvim",
-		config = function()
-			require("lualine").setup()
-		end,
-	},
-	{
-		repo = "kassio/neoterm",
-		config = function()
-			require("configs.neoterm").setup()
-		end,
-		license = "Apache 2.0 license",
-	},
-	{
-		repo = "preservim/nerdcommenter",
-		config = function()
-			require("configs.nerdcommenter").setup()
-		end,
-		license = "CC0-1.0 License",
-	},
+    {
+        repo = "morhetz/gruvbox",
+        license = "MIT license",
+        config = function()
+            require("configs.gruvbox").setup()
+        end,
+    },
+    {
+        repo = "hoob3rt/lualine.nvim",
+        config = function()
+            require("lualine").setup()
+        end,
+    },
+    {
+        repo = "kassio/neoterm",
+        config = function()
+            require("configs.neoterm").setup()
+        end,
+        license = "Apache 2.0 license",
+    },
+    {
+        repo = "preservim/nerdcommenter",
+        config = function()
+            require("configs.nerdcommenter").setup()
+        end,
+        license = "CC0-1.0 License",
+    },
     -- {repo = 'neovim/nvim-lspconfig',
     -- license = "Apache 2.0",
     -- },
-    {
-        repo = "neoclide/coc.nvim",
-        opts = {branch = 'release'},
-        config = function()
-            vim.cmd("source" .. vim.fn.stdpath("config") .. "/lua/configs/coc.vim")
-        end,
-        license = "MIT",
-    },
+    -- {
+    -- repo = "neoclide/coc.nvim",
+    -- opts = {branch = 'release'},
+    -- config = function()
+    -- vim.cmd("source" .. vim.fn.stdpath("config") .. "/lua/configs/coc.vim")
+    -- end,
+    -- license = "MIT",
+    -- },
     {
 
         repo = "airblade/vim-rooter",
@@ -66,20 +66,82 @@ return {
         license = ""
     },
     {
-        repo = 'nvim-telescope/telescope.nvim',
+        repo = "nvim-telescope/telescope.nvim",
+        opts = { tag = "0.1.0" },
         config = function()
             require("configs.nvim_telescope").setup()
         end,
         license = "MIT"
 
+    },
+    {
+        repo = "tpope/vim-fugitive",
+        license = "vim"
+    },
+    {
+        repo = "hrsh7th/cmp-vsnip",
+        license = "mit"
+
+    },
+    {
+        repo = "hrsh7th/vim-vsnip",
+        license = "mit"
+
+    },
+    {
+        repo = "hrsh7th/cmp-nvim-lsp",
+        license = "mit"
+
+    },
+    {
+        repo = "hrsh7th/cmp-buffer",
+        license = "mit"
+
+    },
+    {
+        repo = "hrsh7th/cmp-path",
+        license = "mit"
+
+    },
+    {
+        repo = "hrsh7th/cmp-cmdline",
+        license = "mit"
+
+    },
+    {
+        repo = "hrsh7th/nvim-cmp",
+        config = function()
+            require("configs.nvim_cmp").setup()
+        end,
+        license = "mit"
+
+    },
+    {
+        repo = "williamboman/nvim-lsp-installer",
+        config = function()
+            require("configs.nvim_lsp_installer").setup()
+        end,
+        license = "apache 2.0"
+
+    },
+    {
+        repo = "neovim/nvim-lspconfig",
+        config = function()
+            require("configs.nvim_lspconfig").setup()
+        end,
+        license = "Apache 2.0"
+
+    },
+    {
+        repo = "jose-elias-alvarez/null-ls.nvim",
+        config = function()
+            require("configs.null_ls").setup()
+        end,
+        license = "none/free"
     }
-    -- Doesn't work on windows
-	-- vim.fn['plug#']('tpope/vim-fugitive') -- Vim License
-	-- -- auto-completion
-	-- vim.fn['plug#']('hrsh7th/nvim-cmp') --MIT
-	-- vim.fn['plug#']('hrsh7th/vim-vsnip') --MIT
-	-- vim.fn['plug#']('hrsh7th/cmp-buffer') --MIT
-	-- vim.fn['plug#']('hrsh7th/cmp-nvim-lsp') -- MIT
-	-- -- LSP
-	-- vim.fn['plug#']('kabouzeid/nvim-lspinstall') --MIT
+    -- vim.fn['plug#']('hrsh7th/nvim-cmp') --MIT
+    -- -- auto-completion
+    -- vim.fn['plug#']('hrsh7th/vim-vsnip') --MIT
+    -- vim.fn['plug#']('hrsh7th/cmp-buffer') --MIT
+    -- vim.fn['plug#']('hrsh7th/cmp-nvim-lsp') -- MIT
 }
