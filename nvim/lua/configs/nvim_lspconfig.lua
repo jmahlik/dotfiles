@@ -1,6 +1,9 @@
 local M = {}
 
-vim.lsp.buf.formatting_sync(nil, 1000)
+vim.lsp.buf.format({
+    timeout_ms = 1000,
+    filter = function(client) return client.name ~= "tsserver" end
+})
 
 -- get all installed servers
 local servers = {
@@ -23,7 +26,7 @@ local servers = {
 
 -- Config.settings for lsp servers
 local configs = {
-    lua = {
+    sumneko_lua = {
         Lua = {
             runtime = {
                 -- LuaJIT in the case of Neovim
@@ -39,6 +42,7 @@ local configs = {
                 library = {
                     [vim.fn.expand("$VIMRUNTIME/lua")] = true,
                     [vim.fn.expand("$VIMRUNTIME/lua/vim/lsp")] = true,
+                    -- [vim.fn.expand("$VIMRUNTIME/lua/vim/lsp")] = true
                 },
             },
         },
@@ -53,31 +57,6 @@ local configs = {
             },
         },
     },
-    -- TODO https://github.com/mattn/efm-langserver
-    -- Go install this
-    -- efm = {
-        -- rootMarkers = { vim.fn.getcwd() },
-        -- languages = {
-            -- python = {
-                -- {
-                    -- lintCommand = "flake8 --stdin-display-name ${INPUT} -",
-                    -- lintStdin = true,
-                    -- lintIgnoreExitCode = true,
-                    -- lintSource = "flake8",
-                -- },
-                -- {
-                    -- lintCommand = "mypy --show-column-numbers",
-                    -- lintIgnoreExitCode = true,
-                    -- lintSource = "mypy",
-                -- },
-                -- {
-                    -- formatCommand = "black --quiet -",
-                    -- formatStdin = true,
-                -- },
-            -- },
-            -- lua = { { formatCommand = "stylua -", formatStdin = true } },
-        -- },
-    -- },
 }
 
 local on_attach = function(client, bufnr)
@@ -111,14 +90,14 @@ local on_attach = function(client, bufnr)
     -- buf_set_keymap('n', '<space>q', '<cmd>lua vim.lsp.diagnostic.set_loclist()<CR>', opts)
 
     -- Set some keybinds conditional on server capabilities
-    if client.resolved_capabilities.document_formatting then
+    if client.server_capabilities.documentRangeFormattingProvider then
         buf_set_keymap("n", "<leader>f", "<cmd>lua vim.lsp.buf.formatting()<CR>", opts)
-    elseif client.resolved_capabilities.document_range_formatting then
+    elseif client.server_capabilities.documentRangeFormattingProvider then
         buf_set_keymap("n", "<leader>f", "<cmd>lua vim.lsp.buf.range_formatting()<CR>", opts)
     end
 
     -- Set autocommands conditional on server_capabilities
-    if client.resolved_capabilities.document_highlight then
+    if client.server_capabilities.document_highlight then
         vim.api.nvim_exec(
             [[
     augroup lsp_document_highlight
@@ -136,7 +115,7 @@ end
 local function make_config()
     local capabilities = vim.lsp.protocol.make_client_capabilities()
     capabilities.textDocument.completion.completionItem.snippetSupport = true
-    capabilities = require("cmp_nvim_lsp").update_capabilities(capabilities)
+    capabilities = require("cmp_nvim_lsp").default_capabilities(capabilities)
     return {
         -- enable snippet support
         capabilities = capabilities,

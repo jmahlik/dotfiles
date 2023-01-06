@@ -1,11 +1,9 @@
 "set up shell
 
-set nocompatible
 " set clipboard=unamedplus
 
 syntax on
 syntax enable 
-filetype off 
 
 " set encoding=utf-8
 " set fileformat=unix
@@ -30,7 +28,7 @@ set nobackup
 set undodir=~/.vim/undodir
 set undofile
 
-set cmdheight=2
+set cmdheight=1
 "set backspace=indent,eol,start
 set colorcolumn=80
 

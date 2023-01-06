@@ -26,17 +26,6 @@ return {
         end,
         license = "CC0-1.0 License",
     },
-    -- {repo = 'neovim/nvim-lspconfig',
-    -- license = "Apache 2.0",
-    -- },
-    -- {
-    -- repo = "neoclide/coc.nvim",
-    -- opts = {branch = 'release'},
-    -- config = function()
-    -- vim.cmd("source" .. vim.fn.stdpath("config") .. "/lua/configs/coc.vim")
-    -- end,
-    -- license = "MIT",
-    -- },
     {
 
         repo = "airblade/vim-rooter",
@@ -52,14 +41,6 @@ return {
             require("configs.vim_auto_save").setup()
         end,
         license = "MIT",
-    },
-    {
-
-        repo = "nvim-treesitter/nvim-treesitter",
-        config = function()
-            require("configs.treesitter").setup()
-        end,
-        license = "Apache-2.0",
     },
     {
         repo = 'nvim-lua/plenary.nvim',
@@ -103,11 +84,11 @@ return {
         license = "mit"
 
     },
-    {
-        repo = "hrsh7th/cmp-cmdline",
-        license = "mit"
+    -- {
+    -- repo = "hrsh7th/cmp-cmdline",
+    -- license = "mit"
 
-    },
+    -- },
     {
         repo = "hrsh7th/nvim-cmp",
         config = function()
@@ -139,9 +120,4 @@ return {
         end,
         license = "none/free"
     }
-    -- vim.fn['plug#']('hrsh7th/nvim-cmp') --MIT
-    -- -- auto-completion
-    -- vim.fn['plug#']('hrsh7th/vim-vsnip') --MIT
-    -- vim.fn['plug#']('hrsh7th/cmp-buffer') --MIT
-    -- vim.fn['plug#']('hrsh7th/cmp-nvim-lsp') -- MIT
 }
